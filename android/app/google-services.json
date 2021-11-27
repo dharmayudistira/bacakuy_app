@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "44161400859",
+    "project_id": "bacakuyapp",
+    "storage_bucket": "bacakuyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44161400859:android:9e986a17275f980df978be",
+        "android_client_info": {
+          "package_name": "com.sib.bacakuy_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44161400859-k9ctfusk2502l09sffe281s5emuoit7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqJZA-rYQ2W15bGaHkRAaxa55pP8Q4nHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44161400859-k9ctfusk2502l09sffe281s5emuoit7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
