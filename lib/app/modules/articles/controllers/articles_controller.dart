@@ -1,20 +1,33 @@
+import 'package:bacakuy_app/app/data/models/article.dart';
+import 'package:bacakuy_app/app/data/providers/article_provider.dart';
 import 'package:get/get.dart';
 
-class ArticlesController extends GetxController {
-  //TODO: Implement ArticlesController
+class ArticlesController extends GetxController with StateMixin<List<Article>?> {
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+
+    change(null, status: RxStatus.loading());
+    ArticleProvider().getListArticle().then((value) {
+      change(value, status: RxStatus.success());
+    }, onError: (message) {
+      change(null, status: RxStatus.error(message.toString()));
+    });
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+}
 
+class HomeController extends GetxController with StateMixin<List<Article>?> {
   @override
-  void onClose() {}
-  void increment() => count.value++;
+  void onInit() {
+    super.onInit();
+
+    change(null, status: RxStatus.loading());
+    ArticleProvider().getListArticle().then((value) {
+      change(value, status: RxStatus.success());
+    }, onError: (message) {
+      change(null, status: RxStatus.error(message.toString()));
+    });
+  }
 }
