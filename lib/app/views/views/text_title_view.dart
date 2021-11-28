@@ -10,9 +10,11 @@ class TextTitleView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+      style: Theme.of(context).textTheme.subtitle1?.copyWith(
             fontWeight: FontWeight.bold,
+            fontSize: 18,
             color: textColor ?? Colors.black,
+            overflow: TextOverflow.ellipsis,
           ),
     );
   }

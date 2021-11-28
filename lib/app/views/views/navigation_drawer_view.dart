@@ -2,6 +2,7 @@ import 'package:bacakuy_app/app/constants/color_constants.dart';
 import 'package:bacakuy_app/app/constants/dimen_constants.dart';
 import 'package:bacakuy_app/app/routes/app_pages.dart';
 import 'package:bacakuy_app/app/views/views/text_caption_view.dart';
+import 'package:bacakuy_app/app/views/views/text_subtitle_view.dart';
 import 'package:bacakuy_app/app/views/views/text_title_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -20,8 +21,8 @@ class NavigationDrawerView extends StatelessWidget {
           children: [
             _buildHeader(
               imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-              name: "Dummy User",
-              email: "dummyemail.com",
+              name: "Dummy Name",
+              email: "dummyemail@gmail.com",
               onClicked: () {},
             ),
             Divider(color: Colors.white70),
@@ -77,7 +78,7 @@ class NavigationDrawerView extends StatelessWidget {
 
     return ListTile(
       leading: FaIcon(itemIcon, color: baseColor, size: 20),
-      title: TextTitleView(text: itemTitle, textColor: baseColor),
+      title: TextSubtitleView(text: itemTitle, textColor: baseColor),
       onTap: onSelected,
     );
   }

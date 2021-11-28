@@ -13,7 +13,7 @@ class TextCaptionView extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           .caption
-          ?.copyWith(color: textColor ?? Colors.black),
+          ?.copyWith(fontSize: 12, color: textColor ?? Colors.black),
     );
   }
 }

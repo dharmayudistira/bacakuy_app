@@ -12,8 +12,8 @@ class TextSubtitleView extends StatelessWidget {
       text,
       style: Theme.of(context)
           .textTheme
-          .bodyText2
-          ?.copyWith(color: textColor ?? Colors.black),
+          .bodyText1
+          ?.copyWith(fontSize: 16, color: textColor ?? Colors.black),
     );
   }
 }
