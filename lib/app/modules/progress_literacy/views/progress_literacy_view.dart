@@ -1,6 +1,9 @@
 import 'package:bacakuy_app/app/constants/color_constants.dart';
 import 'package:bacakuy_app/app/routes/app_pages.dart';
 import 'package:bacakuy_app/app/views/views/loading_view.dart';
+import 'package:bacakuy_app/app/views/views/navigation_drawer_view.dart';
+import 'package:bacakuy_app/app/views/views/text_caption_view.dart';
+import 'package:bacakuy_app/app/views/views/text_subtitle_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,13 +27,30 @@ class ProgressLiteracyView extends GetView<ProgressLiteracyController> {
         },
         child: FaIcon(FontAwesomeIcons.plusCircle),
       ),
+      drawer: SafeArea(
+        child: NavigationDrawerView(),
+      ),
       body: controller.obx(
         (state) => ListView.builder(
           itemCount: state?.length,
           itemBuilder: (context, index) {
             final book = state?[index];
             return ListTile(
-              title: Text(book?.id ?? "no id"),
+              leading: ClipRRect(
+                child: Container(
+                  width: 75,
+                  child: Image.network(
+                    book?.bookImage ?? "https://via.placeholder.com/150",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              title: TextSubtitleView(
+                text: book?.target ?? "Tidak ada target",
+              ),
+              subtitle: TextCaptionView(
+                text: book?.bookTitle ?? "Tidak ada judul",
+              ),
             );
           },
         ),

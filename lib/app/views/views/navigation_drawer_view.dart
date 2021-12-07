@@ -102,19 +102,19 @@ class NavigationDrawerView extends StatelessWidget {
 
     switch (index) {
       case 0:
-        Get.toNamed(Routes.HOME);
+        Get.offNamed(Routes.HOME);
         break;
       case 1:
-        Get.toNamed(Routes.PROGRESS_LITERACY);
+        Get.offNamed(Routes.PROGRESS_LITERACY);
         break;
       case 2:
-        Get.toNamed(Routes.ARTICLES);
+        Get.offNamed(Routes.ARTICLES);
         break;
       case 3:
-        Get.toNamed(Routes.SETTING);
+        Get.offNamed(Routes.SETTING);
         break;
       default:
-        Get.toNamed(Routes.HOME);
+        Get.offNamed(Routes.HOME);
         break;
     }
   }
