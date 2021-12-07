@@ -1,20 +1,29 @@
+import 'package:bacakuy_app/app/data/models/literacy.dart';
+import 'package:bacakuy_app/app/data/providers/literacy_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-class ProgressLiterasiController extends GetxController {
-  //TODO: Implement ProgressLiterasiController
+class ProgressLiteracyController extends GetxController with StateMixin<List<Literacy>?> {
 
-  final count = 0.obs;
+  final userId = FirebaseAuth.instance.currentUser!.uid;
   @override
   void onInit() {
     super.onInit();
+
+    refreshData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void refreshData() {
+    change(null, status: RxStatus.loading());
+    LiteracyProvider().getListLiteracy(userId).then((value) {
+      if(value.isNotEmpty) {
+        change(value, status: RxStatus.success());
+      }else {
+        change(null, status: RxStatus.empty());
+      }
+    }, onError: (error) {
+      change(null, status: RxStatus.error(error));
+    });
   }
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

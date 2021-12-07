@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:bacakuy_app/app/modules/add_literacy/bindings/add_literacy_binding.dart';
+import 'package:bacakuy_app/app/modules/add_literacy/views/add_literacy_view.dart';
 import 'package:bacakuy_app/app/modules/articles/bindings/articles_binding.dart';
 import 'package:bacakuy_app/app/modules/articles/views/articles_view.dart';
 import 'package:bacakuy_app/app/modules/home/bindings/home_binding.dart';
@@ -41,8 +43,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROGRESS_LITERACY,
-      page: () => ProgressLiterasiView(),
-      binding: ProgressLiterasiBinding(),
+      page: () => ProgressLiteracyView(),
+      binding: ProgressLiteracyBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_LITERACY,
+      page: () => AddLiteracyView(),
+      binding: AddLiteracyBinding(),
     ),
   ];
 }

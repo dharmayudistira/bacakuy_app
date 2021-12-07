@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "44161400859",
+    "firebase_url": "https://bacakuyapp-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "bacakuyapp",
     "storage_bucket": "bacakuyapp.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "44161400859-064r2sue32v5qkm3annucapuk4i2ivu7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sib.bacakuy_app",
+            "certificate_hash": "53a01dacce9698123fe41d67e6a11c37c146b739"
+          }
+        },
         {
           "client_id": "44161400859-k9ctfusk2502l09sffe281s5emuoit7h.apps.googleusercontent.com",
           "client_type": 3
