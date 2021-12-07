@@ -1,6 +1,7 @@
 import 'package:bacakuy_app/app/constants/dimen_constants.dart';
 import 'package:bacakuy_app/app/data/models/article.dart';
 import 'package:bacakuy_app/app/modules/articles/views/article_item_view.dart';
+import 'package:bacakuy_app/app/views/views/loading_view.dart';
 import 'package:bacakuy_app/app/views/views/text_caption_view.dart';
 import 'package:bacakuy_app/app/views/views/text_title_view.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +33,7 @@ class ArticlesView extends GetView<ArticlesController> {
               physics: BouncingScrollPhysics(),
             );
           },
-          onLoading: Center(
-            child: Text("Loading"),
-          ),
+          onLoading: LoadingView(),
           onError: (message) {
             return Center(
               child: Text("Error: $message"),

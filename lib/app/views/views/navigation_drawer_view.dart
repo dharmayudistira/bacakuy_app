@@ -4,6 +4,7 @@ import 'package:bacakuy_app/app/routes/app_pages.dart';
 import 'package:bacakuy_app/app/views/views/text_caption_view.dart';
 import 'package:bacakuy_app/app/views/views/text_subtitle_view.dart';
 import 'package:bacakuy_app/app/views/views/text_title_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,9 @@ class NavigationDrawerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final currentUser = FirebaseAuth.instance.currentUser;
+
     return Drawer(
       child: Material(
         color: kPrimaryColor,
@@ -20,9 +24,9 @@ class NavigationDrawerView extends StatelessWidget {
           padding: paddingHorizontal,
           children: [
             _buildHeader(
-              imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-              name: "Dummy Name",
-              email: "dummyemail@gmail.com",
+              imageUrl: currentUser?.photoURL ?? "null",
+              name: currentUser?.displayName ?? "error name",
+              email: currentUser?.email ?? "error email",
               onClicked: () {},
             ),
             Divider(color: Colors.white70),
@@ -33,9 +37,19 @@ class NavigationDrawerView extends StatelessWidget {
               onSelected: () => _selectedItem(0),
             ),
             _buildDrawerItem(
+              itemTitle: "Progress Literasi",
+              itemIcon: FontAwesomeIcons.chartBar,
+              onSelected: () => _selectedItem(1),
+            ),
+            _buildDrawerItem(
               itemTitle: "Baca Artikel",
               itemIcon: FontAwesomeIcons.book,
-              onSelected: () => _selectedItem(1),
+              onSelected: () => _selectedItem(2),
+            ),
+            _buildDrawerItem(
+              itemTitle: "Pengaturan",
+              itemIcon: FontAwesomeIcons.cog,
+              onSelected: () => _selectedItem(3),
             ),
           ],
         ),
@@ -57,7 +71,7 @@ class NavigationDrawerView extends StatelessWidget {
         leading: CircleAvatar(
           backgroundImage: NetworkImage(imageUrl),
         ),
-        title: TextTitleView(
+        title: TextSubtitleView(
           text: name,
           textColor: baseColor,
         ),
@@ -91,7 +105,13 @@ class NavigationDrawerView extends StatelessWidget {
         Get.toNamed(Routes.HOME);
         break;
       case 1:
+        Get.toNamed(Routes.PROGRESS_LITERACY);
+        break;
+      case 2:
         Get.toNamed(Routes.ARTICLES);
+        break;
+      case 3:
+        Get.toNamed(Routes.SETTING);
         break;
       default:
         Get.toNamed(Routes.HOME);

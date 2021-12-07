@@ -6,9 +6,15 @@ abstract class Routes {
 
   static const HOME = _Paths.HOME;
   static const ARTICLES = _Paths.ARTICLES;
+  static const LOGIN = _Paths.LOGIN;
+  static const SETTING = _Paths.SETTING;
+  static const PROGRESS_LITERACY = _Paths.PROGRESS_LITERACY;
 }
 
 abstract class _Paths {
   static const HOME = '/home';
   static const ARTICLES = '/articles';
+  static const LOGIN = '/login';
+  static const SETTING = '/setting';
+  static const PROGRESS_LITERACY = '/progress-literasi';
 }
