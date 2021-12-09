@@ -35,13 +35,17 @@ class LoginView extends GetView<LoginController> {
               height: 15,
             ),
             Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-
-                },
-                icon: FaIcon(FontAwesomeIcons.google),
-                label: Text("Sign in"),
-              ),
+              child: Obx(() {
+                return (controller.isLoading.value)
+                    ? LoadingView()
+                    : ElevatedButton.icon(
+                        onPressed: () {
+                          controller.doLogin();
+                        },
+                        icon: FaIcon(FontAwesomeIcons.google),
+                        label: Text("Sign in"),
+                      );
+              }),
             ),
             SizedBox(height: 5),
             Text(
