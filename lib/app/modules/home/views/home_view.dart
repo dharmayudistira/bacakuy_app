@@ -15,7 +15,10 @@ import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 import 'greeting_view.dart';
 
-class HomeView extends GetView<HomeController> {
+class HomeView extends StatelessWidget {
+
+  final controller = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

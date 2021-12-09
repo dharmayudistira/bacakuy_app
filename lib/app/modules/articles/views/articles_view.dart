@@ -10,16 +10,16 @@ import 'package:get/get.dart';
 
 import '../controllers/articles_controller.dart';
 
-class ArticlesView extends GetView<ArticlesController> {
+class ArticlesView extends StatelessWidget {
+
+  final controller = Get.put(ArticlesController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Daftar Artikel'),
         centerTitle: true,
-      ),
-      drawer: SafeArea(
-        child: NavigationDrawerView(),
       ),
       body: controller.obx(
         (state) {

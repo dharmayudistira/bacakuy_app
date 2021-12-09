@@ -13,9 +13,6 @@ class SettingView extends GetView<SettingController> {
         title: Text('SettingView'),
         centerTitle: true,
       ),
-      drawer: SafeArea(
-        child: NavigationDrawerView(),
-      ),
       body: Center(
         child: Text(
           'SettingView is working',

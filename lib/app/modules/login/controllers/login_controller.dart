@@ -28,7 +28,7 @@ class LoginController extends GetxController {
   void handleIsSignedInChanged(bool isLoggedIn) {
     if(isLoggedIn) {
       //navigate to home
-      Get.offNamed(Routes.HOME);
+      Get.offNamed(Routes.MAIN);
     }else {
       return;
     }
