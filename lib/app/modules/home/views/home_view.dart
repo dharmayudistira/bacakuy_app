@@ -1,3 +1,4 @@
+import 'package:bacakuy_app/app/routes/app_pages.dart';
 import 'package:bacakuy_app/app/views/views/navigation_drawer_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class HomeView extends GetView<HomeController> {
     "Ilmu itu ada di mana-mana, pengetahuan di mana-mana tersebar, kalau kita bersedia membaca, dan bersedia mendengar.",
     "Membaca adalah napas hidup dan jembatan emas ke masa depan.Membaca adalah napas hidup dan jembatan emas ke masa depan."
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +22,8 @@ class HomeView extends GetView<HomeController> {
           'Bacakuy',
         ),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
       ),
+      drawer: SafeArea(child: NavigationDrawerView()),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -69,10 +71,12 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
-      floatingActionButton:
-          FloatingActionButton(onPressed: () {
-
-          }, child: const Icon(Icons.add)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.toNamed(Routes.ADD_LITERACY);
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 
