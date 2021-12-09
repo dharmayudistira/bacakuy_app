@@ -8,8 +8,6 @@ import 'package:bacakuy_app/app/modules/home/bindings/home_binding.dart';
 import 'package:bacakuy_app/app/modules/home/views/home_view.dart';
 import 'package:bacakuy_app/app/modules/login/bindings/login_binding.dart';
 import 'package:bacakuy_app/app/modules/login/views/login_view.dart';
-import 'package:bacakuy_app/app/modules/progress_literacy/bindings/progress_literacy_binding.dart';
-import 'package:bacakuy_app/app/modules/progress_literacy/views/progress_literacy_view.dart';
 import 'package:bacakuy_app/app/modules/setting/bindings/setting_binding.dart';
 import 'package:bacakuy_app/app/modules/setting/views/setting_view.dart';
 
@@ -40,11 +38,6 @@ class AppPages {
       name: _Paths.SETTING,
       page: () => SettingView(),
       binding: SettingBinding(),
-    ),
-    GetPage(
-      name: _Paths.PROGRESS_LITERACY,
-      page: () => ProgressLiteracyView(),
-      binding: ProgressLiteracyBinding(),
     ),
     GetPage(
       name: _Paths.ADD_LITERACY,
