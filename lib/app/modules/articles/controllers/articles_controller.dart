@@ -17,17 +17,3 @@ class ArticlesController extends GetxController with StateMixin<List<Article>?> 
   }
 
 }
-
-class HomeController extends GetxController with StateMixin<List<Article>?> {
-  @override
-  void onInit() {
-    super.onInit();
-
-    change(null, status: RxStatus.loading());
-    ArticleProvider().getListArticle().then((value) {
-      change(value, status: RxStatus.success());
-    }, onError: (message) {
-      change(null, status: RxStatus.error(message.toString()));
-    });
-  }
-}

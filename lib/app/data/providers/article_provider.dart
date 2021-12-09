@@ -16,7 +16,7 @@ class ArticleProvider {
     if(convertedSnapshots.isNotEmpty) {
       return convertedSnapshots;
     }else {
-      return Future.error("List article is empty");
+      return Future.error("Error while fetching articles");
     }
   }
 }
