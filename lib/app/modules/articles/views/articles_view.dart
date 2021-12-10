@@ -17,24 +17,22 @@ class ArticlesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Daftar Artikel'),
-        centerTitle: true,
-      ),
       body: controller.obx(
         (state) {
-          return ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: dimenMedium),
-            separatorBuilder: (_, __) {
-              return SizedBox(height: dimenMedium);
-            },
-            itemCount: state?.length ?? 0,
-            itemBuilder: (context, index) {
-              final article = state?[index];
+          return SafeArea(
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: dimenMedium),
+              separatorBuilder: (_, __) {
+                return SizedBox(height: dimenMedium);
+              },
+              itemCount: state?.length ?? 0,
+              itemBuilder: (context, index) {
+                final article = state?[index];
 
-              return ArticleItemView(article: article);
-            },
-            physics: BouncingScrollPhysics(),
+                return ArticleItemView(article: article);
+              },
+              physics: BouncingScrollPhysics(),
+            ),
           );
         },
         onLoading: LoadingView(),

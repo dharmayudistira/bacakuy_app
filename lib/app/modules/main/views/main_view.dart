@@ -49,7 +49,7 @@ class _MainViewState extends State<MainView> {
             ),
             title: TextCaptionView(
               text: e["title"] as String,
-              textColor: Colors.white,
+              textColor: kPrimaryColor,
             ),
             textAlign: TextAlign.center,
           );

@@ -1,4 +1,5 @@
 import 'package:bacakuy_app/app/constants/color_constants.dart';
+import 'package:bacakuy_app/app/constants/dimen_constants.dart';
 import 'package:bacakuy_app/app/modules/home/controllers/home_controller.dart';
 import 'package:bacakuy_app/app/views/views/loading_view.dart';
 import 'package:bacakuy_app/app/views/views/text_caption_view.dart';
@@ -27,29 +28,37 @@ class ListReminderView extends GetView {
         ),
         child: homeController.obx(
           (state) {
-            return ListView.builder(
-              itemCount: state?.length,
-              itemBuilder: (context, index) {
-                final literacy = state?[index];
+            return Padding(
+              padding: EdgeInsets.all(dimenMedium),
+              child: ListView.builder(
+                itemCount: state?.length,
+                itemBuilder: (context, index) {
+                  final literacy = state?[index];
 
-                return ListTile(
-                  title: TextSubtitleView(
-                    text: literacy?.target ?? "Tidak ada target",
-                  ),
-                  subtitle: TextCaptionView(
-                    text: literacy?.bookTitle ?? "Tidak ada judul buku",
-                  ),
-                  trailing: IconButton(
-                    icon: FaIcon(FontAwesomeIcons.trash),
-                    onPressed: () {
-                      //should be delete
+                  return ListTile(
+                    title: TextSubtitleView(
+                      text: literacy?.target ?? "Tidak ada target",
+                      textColor: Colors.white,
+                    ),
+                    subtitle: TextCaptionView(
+                      text: literacy?.bookTitle ?? "Tidak ada judul buku",
+                      textColor: Colors.white,
+                    ),
+                    trailing: IconButton(
+                      icon: FaIcon(
+                        FontAwesomeIcons.trash,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        //should be delete
+                      },
+                    ),
+                    onTap: () {
+                      //should go to edit
                     },
-                  ),
-                  onTap: () {
-                    //should go to edit
-                  },
-                );
-              },
+                  );
+                },
+              ),
             );
           },
           onLoading: LoadingView(),
