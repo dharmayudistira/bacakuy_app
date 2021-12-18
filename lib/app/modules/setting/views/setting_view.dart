@@ -1,7 +1,7 @@
-import 'package:bacakuy_app/app/views/views/navigation_drawer_view.dart';
+import 'package:bacakuy_app/app/data/preferences/preferences_provider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import '../controllers/setting_controller.dart';
 
@@ -10,15 +10,28 @@ class SettingView extends GetView<SettingController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SettingView'),
+        title: Text('Bacakuy'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          'SettingView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: _buildSetting(context),
+    );
+  }
+  Widget _buildSetting(BuildContext context) {
+    return Consumer<PreferencesProvider>(
+        builder: (context, provider, child){
+          return ListView(
+            children: [
+              Material(
+                child: ListTile(
+                  title: Text('Dark Mode'),
+                  trailing: Switch.adaptive(value: provider.isDarkTheme, onChanged: (value){
+                    provider.enableDarkTheme(value);
+                  }),
+                ),
+              )
+            ],
+          );
+        }
     );
   }
 }
