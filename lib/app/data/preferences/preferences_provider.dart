@@ -1,4 +1,5 @@
-import 'package:bacakuy_app/preferences/preferences_helper.dart';
+import 'package:bacakuy_app/app/data/preferences/preferences_helper.dart';
+import 'package:bacakuy_app/app/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
