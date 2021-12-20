@@ -21,9 +21,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    controller.getLiteracy();
-
     return Scaffold(
       body: SafeArea(
         child: Column(
