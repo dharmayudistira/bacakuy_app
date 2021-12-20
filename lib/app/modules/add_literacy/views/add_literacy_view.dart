@@ -57,7 +57,11 @@ class AddLiteracyView extends GetView<AddLiteracyController> {
                           child: ElevatedButton(
                             child: Text("Simpan"),
                             onPressed: () {
-                              controller.addLiteracyToDatabase();
+                              if(controller.editLiteracy == null) {
+                                controller.addLiteracyToDatabase();
+                              }else {
+                                controller.editLiteracyFromDatabase();
+                              }
                             },
                           ),
                         );

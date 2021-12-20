@@ -1,6 +1,7 @@
 import 'package:bacakuy_app/app/constants/color_constants.dart';
 import 'package:bacakuy_app/app/constants/dimen_constants.dart';
 import 'package:bacakuy_app/app/modules/home/controllers/home_controller.dart';
+import 'package:bacakuy_app/app/routes/app_pages.dart';
 import 'package:bacakuy_app/app/views/views/loading_view.dart';
 import 'package:bacakuy_app/app/views/views/text_caption_view.dart';
 import 'package:bacakuy_app/app/views/views/text_subtitle_view.dart';
@@ -54,7 +55,8 @@ class ListReminderView extends GetView {
                       },
                     ),
                     onTap: () {
-                      //should go to edit
+                      Get.toNamed(Routes.ADD_LITERACY, arguments: literacy)
+                          ?.whenComplete(() => homeController.getLiteracy());
                     },
                   );
                 },
