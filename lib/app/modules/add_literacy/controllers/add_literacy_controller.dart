@@ -24,7 +24,7 @@ class AddLiteracyController extends GetxController {
     if (argumentLiteracy != null) {
       editLiteracy = argumentLiteracy as Literacy;
     } else {
-      editLiteracy = Literacy();
+      editLiteracy = null;
     }
 
     bookTitleController = TextEditingController(text: editLiteracy?.bookTitle);

@@ -45,15 +45,17 @@ class ListReminderView extends GetView {
                       text: literacy?.bookTitle ?? "Tidak ada judul buku",
                       textColor: Colors.white,
                     ),
-                    trailing: IconButton(
-                      icon: FaIcon(
-                        FontAwesomeIcons.trash,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        //should be delete
-                      },
-                    ),
+                    trailing: (homeController.loadingDelete.value)
+                        ? LoadingView()
+                        : IconButton(
+                            icon: FaIcon(
+                              FontAwesomeIcons.trash,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              homeController.deleteLiteracy(literacy?.id);
+                            },
+                          ),
                     onTap: () {
                       Get.toNamed(Routes.ADD_LITERACY, arguments: literacy)
                           ?.whenComplete(() => homeController.getLiteracy());

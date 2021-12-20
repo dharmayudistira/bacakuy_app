@@ -2,6 +2,7 @@ import 'package:bacakuy_app/app/data/models/literacy.dart';
 import 'package:bacakuy_app/app/data/models/quote.dart';
 import 'package:bacakuy_app/app/data/providers/literacy_provider.dart';
 import 'package:bacakuy_app/app/data/providers/quote_provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +11,8 @@ class HomeController extends GetxController with StateMixin<List<Literacy>?> {
   late List<Quote> listQuotes;
 
   var loadingQuotes = false.obs;
+
+  var loadingDelete = false.obs;
 
   @override
   void onInit() {
@@ -36,6 +39,19 @@ class HomeController extends GetxController with StateMixin<List<Literacy>?> {
     QuoteProvider().getQuotes().then((value) {
       listQuotes = value;
       loadingQuotes.toggle();
+    });
+  }
+
+  void deleteLiteracy(String? id) {
+    loadingDelete.toggle();
+    var literacyReference = FirebaseFirestore.instance
+        .collection("literacies")
+        .doc("${currentUser?.uid}")
+        .collection("books")
+        .doc(id);
+    literacyReference.delete().whenComplete(() {
+      loadingDelete.toggle();
+      getLiteracy();
     });
   }
 }
