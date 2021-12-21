@@ -9,8 +9,9 @@ import 'package:provider/provider.dart';
 
 import '../controllers/setting_controller.dart';
 
-class SettingView extends GetView<SettingController> {
-  final loginController = Get.find<LoginController>();
+class SettingView extends StatelessWidget {
+
+  final controller = Get.put(SettingController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class SettingView extends GetView<SettingController> {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(primary: Colors.red),
             onPressed: () {
-              loginController.doLogout();
+              controller.doLogout();
             },
             child: Text("Logout"),
           ),
