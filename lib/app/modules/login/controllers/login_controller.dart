@@ -55,7 +55,7 @@ class LoginController extends GetxController {
 
   void doLogout() async {
     await googleSignIn.disconnect();
-    FirebaseAuth.instance.signOut();
+    await FirebaseAuth.instance.signOut();
     Get.offNamed(Routes.LOGIN);
   }
 

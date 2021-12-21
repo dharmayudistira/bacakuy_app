@@ -30,10 +30,6 @@ class SettingView extends GetView<SettingController> {
         Column(
           children: [
             ListTile(
-              title: Text('Dark Mode'),
-              trailing: Switch.adaptive(value: true, onChanged: null),
-            ),
-            ListTile(
               title: Text('Reminder'),
               trailing: Switch.adaptive(value: true, onChanged: null),
             ),
