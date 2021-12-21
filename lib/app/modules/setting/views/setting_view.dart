@@ -1,3 +1,4 @@
+import 'package:bacakuy_app/app/constants/color_constants.dart';
 import 'package:bacakuy_app/app/constants/dimen_constants.dart';
 import 'package:bacakuy_app/app/data/preferences/preferences_provider.dart';
 import 'package:bacakuy_app/app/modules/login/controllers/login_controller.dart';
@@ -9,7 +10,6 @@ import 'package:provider/provider.dart';
 import '../controllers/setting_controller.dart';
 
 class SettingView extends GetView<SettingController> {
-
   final loginController = Get.find<LoginController>();
 
   @override
@@ -29,9 +29,17 @@ class SettingView extends GetView<SettingController> {
       children: [
         Column(
           children: [
-            ListTile(
-              title: Text('Reminder'),
-              trailing: Switch.adaptive(value: true, onChanged: null),
+            Obx(
+              () => ListTile(
+                title: Text('Reminder'),
+                trailing: Switch.adaptive(
+                  value: controller.isReminderActive.value,
+                  onChanged: (newValue) {
+                    return controller.updateReminderState(newValue);
+                  },
+                  activeColor: kPrimaryColor,
+                ),
+              ),
             ),
           ],
         ),
@@ -39,9 +47,7 @@ class SettingView extends GetView<SettingController> {
           padding: EdgeInsets.symmetric(horizontal: dimenMedium),
           width: double.maxFinite,
           child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.red
-            ),
+            style: ElevatedButton.styleFrom(primary: Colors.red),
             onPressed: () {
               loginController.doLogout();
             },

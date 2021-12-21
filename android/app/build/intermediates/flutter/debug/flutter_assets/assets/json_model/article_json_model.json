@@ -1,0 +1,9 @@
+{
+  "id" : "string",
+  "author_name" : "string",
+  "release_date" : "string",
+  "image_url" : "string",
+  "source_url" : "string",
+  "title" : "string",
+  "description" : "string"
+}

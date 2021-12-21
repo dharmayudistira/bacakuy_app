@@ -19,10 +19,16 @@ dependencies:
   carousel_slider: ^4.0.0
   curved_navigation_bar: 1.0.1
   bottom_navy_bar: 6.0.0
-  flutter: 
-    sdk: flutter
   shared_preferences: ^2.0.11
   provider: ^6.0.1
+  intl: 0.17.0
+  android_alarm_manager_plus: 2.0.3
+  flutter_local_notifications: 9.1.5
+  rxdart: 0.27.3
+  get_storage: 2.0.3
+  android_alarm_manager: 2.0.2
+  flutter: 
+    sdk: flutter
 
 dev_dependencies: 
   flutter_lints: ^1.0.0
