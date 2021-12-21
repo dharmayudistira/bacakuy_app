@@ -1,4 +1,4 @@
-import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:bacakuy_app/app/controllers/setting_preference_controller.dart';
 import 'package:bacakuy_app/app/utils/background_service.dart';
 import 'package:bacakuy_app/app/utils/date_time_helper.dart';
