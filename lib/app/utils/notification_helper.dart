@@ -14,34 +14,37 @@ class NotificationHelper {
   factory NotificationHelper() => _instance ?? NotificationHelper._internal();
 
   Future<void> initNotifications(
-      FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin) async {
-    var initializationSettingAndroid =
-        AndroidInitializationSettings('app_icon');
-    var initializationSettingIOS = IOSInitializationSettings(
+    FlutterLocalNotificationsPlugin plugin,
+  ) async {
+    var initSettingsForAndroid = AndroidInitializationSettings('app_icon');
+    var initSettingsForIOS = IOSInitializationSettings(
       requestAlertPermission: false,
       requestBadgePermission: false,
       requestSoundPermission: false,
     );
 
-    var initializationSettings = InitializationSettings(
-      android: initializationSettingAndroid,
-      iOS: initializationSettingIOS,
+    var initSettings = InitializationSettings(
+      android: initSettingsForAndroid,
+      iOS: initSettingsForIOS,
     );
 
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onSelectNotification: (String? payload) {
-      selectNotificationSubject.add(payload ?? 'empty payload');
-    });
+    await plugin.initialize(
+      initSettings,
+      onSelectNotification: (payload) async {
+        selectNotificationSubject.add(payload ?? 'empty payload');
+      },
+    );
   }
 
   Future<void> showNotification(
-    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin,
+    FlutterLocalNotificationsPlugin plugin,
+    String messageTitle,
   ) async {
     var _channelId = "1";
-    var _channelName = "channnel_01";
-    var _channelDescription = "bacakuyapp channel";
+    var _channelName = "channel_01";
+    var _channelDescription = "bacakuy channel";
 
-    var andoridPlatformChannelSpecifics = AndroidNotificationDetails(
+    var androidPlatformSpecifics = AndroidNotificationDetails(
       _channelId,
       _channelName,
       channelDescription: _channelDescription,
@@ -50,20 +53,21 @@ class NotificationHelper {
       ticker: 'ticker',
       styleInformation: DefaultStyleInformation(true, true),
     );
-    var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+
+    var iOSPlatformSpecifics = IOSNotificationDetails();
 
     var platformChannelSpecifics = NotificationDetails(
-      android: andoridPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
+      android: androidPlatformSpecifics,
+      iOS: iOSPlatformSpecifics,
     );
 
-    var titleNotification = "<b>BacakuyApp</b>";
-    var titleMessage = "Hai, yuk buka BacakuyApp";
+    var titleNotification = "Restaurant App";
+    var restaurantName = messageTitle;
 
-    await flutterLocalNotificationsPlugin.show(
+    await plugin.show(
       0,
       titleNotification,
-      titleMessage,
+      restaurantName,
       platformChannelSpecifics,
       payload: "payload",
     );

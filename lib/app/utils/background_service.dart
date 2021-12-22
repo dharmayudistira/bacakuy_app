@@ -8,25 +8,31 @@ import 'package:bacakuy_app/main.dart';
 final ReceivePort port = ReceivePort();
 
 class BackgroundService {
-  static BackgroundService? _instance;
-  static String _isolateName = 'isolate';
+  static BackgroundService? _service;
+  static final String _isolateName = 'isolate';
   static SendPort? _uiSendPort;
 
   BackgroundService._internal() {
-    _instance = this;
+    _service = this;
   }
 
-  factory BackgroundService() => _instance ?? BackgroundService._internal();
+  factory BackgroundService() => _service ?? BackgroundService._internal();
 
   void initializeIsolate() {
-    IsolateNameServer.registerPortWithName(port.sendPort, _isolateName);
+    IsolateNameServer.registerPortWithName(
+      port.sendPort,
+      _isolateName,
+    );
   }
 
   static Future<void> callback() async {
-    print("Alarm fired!");
-    final NotificationHelper _notificationHelper = NotificationHelper();
-    await _notificationHelper.showNotification(flutterLocalNotificationsPlugin);
-    
+    final NotificationHelper _helper = NotificationHelper();
+
+    await _helper.showNotification(
+      flutterLocalNotificationsPlugin,
+      "Tingkatkan literasimu dengan bacakuyapp",
+    );
+
     _uiSendPort ??= IsolateNameServer.lookupPortByName(_isolateName);
     _uiSendPort?.send(null);
   }
