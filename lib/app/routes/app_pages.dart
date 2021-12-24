@@ -1,3 +1,4 @@
+import 'package:bacakuy_app/app/modules/splash/splashscreen.dart';
 import 'package:get/get.dart';
 
 import 'package:bacakuy_app/app/modules/add_literacy/bindings/add_literacy_binding.dart';
@@ -18,7 +19,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
@@ -50,6 +51,10 @@ class AppPages {
       name: _Paths.MAIN,
       page: () => MainView(),
       binding: MainBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH,
+      page: () => SplashscreenView(),
     ),
   ];
 }
