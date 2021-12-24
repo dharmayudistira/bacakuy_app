@@ -61,13 +61,13 @@ class NotificationHelper {
       iOS: iOSPlatformSpecifics,
     );
 
-    var titleNotification = "Restaurant App";
-    var restaurantName = messageTitle;
+    var titleNotification = "BacakuyApp";
+    var appName = messageTitle;
 
     await plugin.show(
       0,
       titleNotification,
-      restaurantName,
+      appName,
       platformChannelSpecifics,
       payload: "payload",
     );
