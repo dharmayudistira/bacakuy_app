@@ -24,8 +24,9 @@ class BackgroundService {
   }
 
   static Future<void> callback() async {
-    final NotificationHelper _helper = NotificationHelper();
 
+    print('Notification Fired!');
+    final NotificationHelper _helper = NotificationHelper();
     await _helper.showNotification(
       flutterLocalNotificationsPlugin,
     "Hai, yuk buka BacakuyApp",
