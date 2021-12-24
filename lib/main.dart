@@ -27,6 +27,8 @@ void main() async {
     await AndroidAlarmManager.initialize();
   }
 
+  await AndroidAlarmManager.initialize();
+
   await _helper.initNotifications(flutterLocalNotificationsPlugin);
 
   runApp(_buildApp());
