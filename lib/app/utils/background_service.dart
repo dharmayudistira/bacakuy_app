@@ -1,7 +1,5 @@
 import 'dart:isolate';
-
 import 'dart:ui';
-
 import 'package:bacakuy_app/app/utils/notification_helper.dart';
 import 'package:bacakuy_app/main.dart';
 
@@ -30,7 +28,7 @@ class BackgroundService {
 
     await _helper.showNotification(
       flutterLocalNotificationsPlugin,
-      "Tingkatkan literasimu dengan bacakuyapp",
+    "Hai, yuk buka BacakuyApp",
     );
 
     _uiSendPort ??= IsolateNameServer.lookupPortByName(_isolateName);
